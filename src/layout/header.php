@@ -14,3 +14,4 @@
             crossorigin="anonymous"></script>
     <title><?php echo $title ?></title>
 </head>
+<main>
