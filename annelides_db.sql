@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : mar. 01 mars 2022 à 19:10
+-- Généré le : mer. 02 mars 2022 à 20:17
 -- Version du serveur :  5.7.31
 -- Version de PHP : 7.4.9
 
@@ -33,6 +33,20 @@ DROP TABLE IF EXISTS `espece`;
 CREATE TABLE IF NOT EXISTS `espece` (
   `id` smallint(5) UNSIGNED NOT NULL AUTO_INCREMENT,
   `nom` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `ville`
+--
+
+DROP TABLE IF EXISTS `ville`;
+CREATE TABLE IF NOT EXISTS `ville` (
+  `id` smallint(5) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `nom` char(128) NOT NULL,
+  `departement` smallint(5) UNSIGNED NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 COMMIT;
