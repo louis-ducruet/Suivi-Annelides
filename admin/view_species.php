@@ -18,10 +18,17 @@
     <section>
         <div class="container mt-5">
             <h1>Gestion des espèces</h1>
+            <div class="row">
+                <div class="col-6"> <!-- création d'un nouveau secteur dans la base de donnée-->
+                    <h2 class="mt-2">Rechercher une espèce</h2>
+                    <?php searchInput($search, "view_species.php", "view_species.php"); ?>
+                </div>
+            </div>
+            <hr>
             <?php
-                if (isset($search) and $search != "") {
-                    echo "<h2>Résultat de la recherche '" . dataDBSafe($search) . "'</h2>";
-                }
+            if (isset($search) and $search != "") {
+                echo "<h2>Résultat de la recherche '" . dataDBSafe($search) . "'</h2>";
+            }
             ?>
             <table class="table table-striped">
                 <thead>
