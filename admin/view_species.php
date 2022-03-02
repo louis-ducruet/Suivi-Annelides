@@ -9,7 +9,6 @@
     include_once "../src/config.php";
     include_once "../src/actions/database-connection.php";
     include_once "../src/actions/functions.php";
-    $espece = sqlCommand("SELECT * FROM espece", [], $conn);
     if (isset($search)) {
         $lines = sqlCommand("SELECT * FROM espece  WHERE nom LIKE :search ORDER BY nom", [":search" => "%" . $search . "%"], $conn);
     } else {
