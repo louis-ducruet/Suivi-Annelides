@@ -27,7 +27,7 @@
                 </div>
                 <div class="col-6"> <!-- création d'un nouveau secteur dans la base de donnée-->
                     <h2 class="mt-2">Ajouter une espèce</h2>
-                    <form action="../src/actions/db_insert_sector.php" method="POST" class="mt-3 needs-validation" novalidate>
+                    <form action="../src/actions/db_insert_species.php" method="POST" class="mt-3 needs-validation" novalidate>
                         <div class="input-group mb-3">
                             <div class="form-floating" style="width: 50%;">
                                 <input type="text" name="name" placeholder="Secteur" id="add_sector" class="form-control"
