@@ -70,7 +70,7 @@
                                 <td> <!-- option applicable au secteur enregistré dans la base de donnée-->
                                     <div class="btn-group">
                                         <?php
-                                        modalButton("<span class='fas fa-edit'></span>", "success", "modalRenameSector" . $l['id']);
+                                        modalButton("<span class='fas fa-edit'></span>", "success", "modalRenameField" . $l['id']);
                                         ?>
                                     </div>
                                     <?php

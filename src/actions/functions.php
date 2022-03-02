@@ -27,7 +27,7 @@ function modalBottom() //bas de l'HTML d'une popup
 
 function modalBodyFormRenameField($sector_name, $id, $token, $action) //corps de la popup pour renommer un secteur
 {
-    modalTop("modalRenameSector" . $id);
+    modalTop("modalRenameField" . $id);
     echo "<form action='$action' class='needs-validation' method='post' novalidate>
         <div class='modal-header'>
             <h5 class='modal-title'>Modifier le champ : \"" . dataDBSafe($sector_name) . "\"</h5>
