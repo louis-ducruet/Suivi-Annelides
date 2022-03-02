@@ -68,7 +68,14 @@
                                     <?php echo dataDBSafe($l["nom"]) ?>
                                 </td>
                                 <td> <!-- option applicable au secteur enregistré dans la base de donnée-->
-                                    Bientôt disponible
+                                    <div class="btn-group">
+                                        <?php
+                                        modalButton("<span class='fas fa-edit'></span>", "success", "modalRenameSector" . $l['id']);
+                                        ?>
+                                    </div>
+                                    <?php
+                                    modalBodyFormRenameField($l["nom"],$l["id"],$token, "../src/actions/db_update_species.php");
+                                    ?>
                                 </td>
                             </tr>
                             <?php
