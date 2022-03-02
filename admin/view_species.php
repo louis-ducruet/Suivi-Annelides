@@ -71,10 +71,12 @@
                                     <div class="btn-group">
                                         <?php
                                         modalButton("<span class='fas fa-edit'></span>", "success", "modalRenameField" . $l['id']);
+                                        modalButton("<span class='fas fa-trash'></span>", "danger", "modalDeleteField" . $l['id']);
                                         ?>
                                     </div>
                                     <?php
                                     modalBodyFormRenameField($l["nom"],$l["id"],$token, "../src/actions/db_update_species.php");
+                                    modalBodyFormDeleteField($l["nom"],$l["id"],$token, "../src/actions/db_delete_species.php");
                                     ?>
                                 </td>
                             </tr>
