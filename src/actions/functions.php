@@ -1,8 +1,14 @@
 <?php
+function checkLenString($valueCheck, $length_max, $length_min = 1) //vérifie la longueur de la chaîne de caractère
+{
+    return strlen($valueCheck) <= $length_max && strlen($valueCheck) >= $length_min;
+}
+
 function dataDBSafe($data) //sécurise un string pour éviter l'injection de code
 {
     return htmlspecialchars($data, ENT_SUBSTITUTE, 'UTF-8');
 }
+
 function searchInput($search, $link1, $link2, $inputIdHidden = null) //HTML pour la barre de recherche
 {
     echo "<form action='$link1' method='get'>

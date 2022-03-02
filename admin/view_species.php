@@ -6,6 +6,7 @@
     $title = "Visualisation : Espèces";
     $root_path = "./../";
     include_once "../src/layout/header.php";
+    include_once "../src/actions/generate_security_token.php";
     include_once "../src/config.php";
     include_once "../src/actions/database-connection.php";
     include_once "../src/actions/functions.php";
@@ -22,6 +23,20 @@
                 <div class="col-6"> <!-- création d'un nouveau secteur dans la base de donnée-->
                     <h2 class="mt-2">Rechercher une espèce</h2>
                     <?php searchInput($search, "view_species.php", "view_species.php"); ?>
+                </div>
+                <div class="col-6"> <!-- création d'un nouveau secteur dans la base de donnée-->
+                    <h2 class="mt-2">Ajouter une espèce</h2>
+                    <form action="../src/actions/db_insert_sector.php" method="POST" class="mt-3 needs-validation" novalidate>
+                        <div class="input-group mb-3">
+                            <div class="form-floating" style="width: 50%;">
+                                <input type="text" name="name" placeholder="Secteur" id="add_sector" class="form-control"
+                                       maxlength="255" required>
+                                <label for="add_sector">Nom de l'espèce</label>
+                            </div>
+                            <input type="hidden" name="token" value="<?= $token ?>">
+                            <button type="submit" class="btn btn-success"><span class="fa-regular fa-square-plus"></span></button>
+                        </div>
+                    </form>
                 </div>
             </div>
             <hr>
