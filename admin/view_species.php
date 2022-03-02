@@ -19,6 +19,7 @@
     <section>
         <div class="container mt-5">
             <h1>Gestion des espèces</h1>
+            <?php include "../src/actions/print_sql_error.php"?>
             <div class="row">
                 <div class="col-6"> <!-- création d'un nouveau secteur dans la base de donnée-->
                     <h2 class="mt-2">Rechercher une espèce</h2>
