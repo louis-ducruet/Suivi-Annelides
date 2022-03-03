@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : mer. 02 mars 2022 à 20:17
+-- Généré le : jeu. 03 mars 2022 à 19:29
 -- Version du serveur :  5.7.31
 -- Version de PHP : 7.4.9
 
@@ -34,6 +34,24 @@ CREATE TABLE IF NOT EXISTS `espece` (
   `id` smallint(5) UNSIGNED NOT NULL AUTO_INCREMENT,
   `nom` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `utilisateur`
+--
+
+DROP TABLE IF EXISTS `utilisateur`;
+CREATE TABLE IF NOT EXISTS `utilisateur` (
+  `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `identifiant` varchar(128) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `mot_passe` varchar(255) NOT NULL,
+  `admin` tinyint(1) NOT NULL COMMENT '0: normal, 1: admin',
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `identifiant` (`identifiant`),
+  UNIQUE KEY `email` (`email`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
