@@ -4,9 +4,18 @@ function checkLenString($valueCheck, $length_max, $length_min = 1) //vérifie la
     return strlen($valueCheck) <= $length_max && strlen($valueCheck) >= $length_min;
 }
 
+function checkInt($value,$min,$max){ //vérifie la valeur du int
+    return ($value>=$min and ($value<=$max or $max==0) and gettype($value)=="integer");
+}
+
 function dataDBSafe($data) //sécurise un string pour éviter l'injection de code
 {
     return htmlspecialchars($data, ENT_SUBSTITUTE, 'UTF-8');
+}
+
+
+function modalAddFormCall($text, $color, $target){
+    echo "<button type = 'button' class='btn btn-$color pb-2 pt-2' data-bs-toggle='modal' data-bs-target = '#$target' style='width: 100%; font-size: x-large'>$text</button>";
 }
 
 function modalButton($text, $color, $target) //bouton pour afficher une popup
@@ -66,7 +75,7 @@ function searchInput($search, $link1, $link2, $inputIdHidden = null) //HTML pour
     }
     echo "</div><button class='btn btn-outline-secondary fs-5' type='submit'><span class='fa-solid fa-magnifying-glass'></span></button>";
     if (isset($search) and $search != "") {
-        echo "<a href='$link2' class='btn btn-outline-danger text-center fs-4'><span class='fa-solid fa-circle-xmark'></span></a>";
+        echo "<a href='$link2' class='btn btn-outline-danger text-center fs-3'><span class='fa-solid fa-circle-xmark'></span></a>";
     }
     echo "</div></form>";
 }

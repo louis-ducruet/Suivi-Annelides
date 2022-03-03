@@ -6,9 +6,11 @@ if (isset($search)) {
 $title = "Visualisation : Villes";
 $root_path = "./../";
 include_once "../src/layout/header.php";
+include_once "../src/actions/generate_security_token.php";
 include_once "../src/config.php";
 include_once "../src/actions/database-connection.php";
 include_once "../src/actions/functions.php";
+include_once "../src/actions/modal_insert_city.php";
 if (isset($search)) {
     $lines = sqlCommand("SELECT * FROM ville  WHERE nom LIKE :search ORDER BY nom", [":search" => "%" . $search . "%"], $conn);
 } else {
@@ -23,6 +25,11 @@ if (isset($search)) {
                 <div class="col-6"> <!-- création d'un nouveau secteur dans la base de donnée-->
                     <h2 class="mt-2">Rechercher une ville</h2>
                     <?php searchInput($search, "view_city.php", "view_city.php"); ?>
+                </div>
+                <div class="col-6"> <!-- création d'un nouveau secteur dans la base de donnée-->
+                    <h2 class="mt-2">Ajouter une ville</h2>
+                    <?php modalAddFormCall("<span class='fa-regular fa-square-plus'></span> Ajouter une ville", "success", "modalAddField"); ?>
+                    <?php modalBodyFormAddCity($token, "../src/actions/db_insert_city.php"); ?>
                 </div>
             </div>
             <hr>
