@@ -64,7 +64,11 @@ if (isset($search)) {
                                 <?php echo dataDBSafe($l["departement"]) ?>
                             </td>
                             <td> <!-- option applicable au secteur enregistré dans la base de donnée-->
-                                <p>Bientôt disponible</p>
+                                <div class="btn-group">
+                                    <?php
+                                    modalButton("<span class='fas fa-edit'></span>", "success", "modalUpdateField" . $l['id']);
+                                    ?>
+                                </div>
                             </td>
                         </tr>
                         <?php
