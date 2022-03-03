@@ -2,7 +2,7 @@
 function modalBodyFormRenameField($sector_name, $id, $token, $action) //corps de la popup pour renommer un secteur
 {
 modalTop("modalRenameField" . $id);
-echo "<form action='$action' class='needs-validation' method='post' novalidate>
+echo "<form action='$action' class='needs-validation' method='post'>
     <div class='modal-header'>
         <h5 class='modal-title'>Modifier l'espèce : \"" . dataDBSafe($sector_name) . "\"</h5>
         <button type='button' class='btn-close' data-bs-dismiss='modal' aria-label='Close'></button>
