@@ -73,7 +73,7 @@ if (isset($search)) {
                                 </div>
                                 <?php
                                 modalBodyFormUpdate($l,$token, "../src/actions/db_update_city.php");
-                                modalBodyFormDeleteField($l['nom'], $l['id'], $token, "#");
+                                modalBodyFormDeleteField($l['nom'], $l['id'], $token, "../src/actions/db_delete_city.php");
                                 ?>
                             </td>
                         </tr>
