@@ -11,7 +11,7 @@ $name = filter_input(INPUT_POST, "name");
 if (checkLenString($name, 255)) {
     sqlCommand("INSERT INTO espece (nom) VALUES (:name)", [":name" => $name], $conn,false);
     $_SESSION["error"] = false; //succès
-    $_SESSION["error_message"] = "Secteur ajouté avec succès";
+    $_SESSION["error_message"] = "Espèce ajouté avec succès";
 } else {
     $_SESSION["error"] = true; //erreur
     $_SESSION["error_message"] = "Impossible d'ajouter cette espèce, les données ne sont pas valides";
