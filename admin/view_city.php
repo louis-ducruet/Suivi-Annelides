@@ -68,6 +68,7 @@ if (isset($search)) {
                                 <div class="btn-group">
                                     <?php
                                     modalButton("<span class='fas fa-edit'></span>", "success", "modalUpdateField" . $l['id']);
+                                    modalButton("<span class='fas fa-trash'></span>", "danger", "modalDeleteField" . $l['id']);
                                     ?>
                                 </div>
                                 <?php
