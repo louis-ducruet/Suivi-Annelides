@@ -1,18 +1,22 @@
 <?php
-function checkLenString($valueCheck, $length_max, $length_min = 1) //vérifie la longueur de la chaîne de caractère
+function checkLenString($valueCheck, $length_max, $length_min = 1): bool //vérifie la longueur de la chaîne de caractère
 {
     return strlen($valueCheck) <= $length_max && strlen($valueCheck) >= $length_min;
 }
 
-function checkInt($value,$min,$max){ //vérifie la valeur du int
+function checkInt($value,$min,$max): bool
+{ //vérifie la valeur du int
     return ($value>=$min and ($value<=$max or $max==0) and gettype($value)=="integer");
 }
 
-function dataDBSafe($data) //sécurise un string pour éviter l'injection de code
+function dataDBSafe($data): string //sécurise un string pour éviter l'injection de code
 {
     return htmlspecialchars($data, ENT_SUBSTITUTE, 'UTF-8');
 }
 
+function checkEmail($email,$max):bool { //vérifie si il s'agit d'une adresse mail
+    return (filter_var($email,FILTER_VALIDATE_EMAIL) && checkLenString($email,$max));
+}
 
 function modalAddFormCall($text, $color, $target){
     echo "<button type = 'button' class='btn btn-$color pb-2 pt-2' data-bs-toggle='modal' data-bs-target = '#$target' style='width: 100%; font-size: x-large'>$text</button>";
