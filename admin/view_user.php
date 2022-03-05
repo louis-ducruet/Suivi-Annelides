@@ -11,10 +11,11 @@ include_once "../src/config.php";
 include_once "../src/actions/database-connection.php";
 include_once "../src/actions/functions.php";
 include_once "../src/actions/modal_insert_user.php";
+include_once "../src/actions/modal_update_user.php";
 if (isset($search)) {
-    $lines = sqlCommand("SELECT id, identifiant, email, admin FROM utilisateur WHERE identifiant LIKE :search ORDER BY identifiant", [":search" => "%" . $search . "%"], $conn);
+    $lines = sqlCommand("SELECT id ,identifiant, email, admin FROM utilisateur WHERE identifiant LIKE :search ORDER BY identifiant", [":search" => "%" . $search . "%"], $conn);
 } else {
-    $lines = sqlCommand("SELECT * FROM utilisateur ORDER BY identifiant", [], $conn);
+    $lines = sqlCommand("SELECT id ,identifiant, email, admin FROM utilisateur ORDER BY identifiant", [], $conn);
 }
 ?>
     <section>
@@ -73,6 +74,9 @@ if (isset($search)) {
                                         modalButton("<span class='fas fa-edit'></span>", "success", "modalUpdateField" . $l['id']);
                                         ?>
                                     </div>
+                                    <?php
+                                    modalBodyFormUpdate($l,$token, "");
+                                    ?>
                                 </div>
                             </td>
                         </tr>
