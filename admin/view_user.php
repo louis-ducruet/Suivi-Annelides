@@ -23,6 +23,10 @@ if (isset($search)) {
                     <h2 class="mt-2">Rechercher un utilisateur</h2>
                     <?php searchInput($search, "view_user.php", "view_user.php"); ?>
                 </div>
+                <div class="col-6"> <!-- création d'un nouveau secteur dans la base de donnée-->
+                    <h2 class="mt-2">Ajouter un utilisateur</h2>
+                    <?php modalAddFormCall("<span class='fa-regular fa-square-plus'></span> Ajouter un utilisateur", "success", "modalAddField"); ?>
+                </div>
             </div>
             <hr>
             <?php
