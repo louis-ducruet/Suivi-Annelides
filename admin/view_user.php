@@ -75,7 +75,7 @@ if (isset($search)) {
                                         ?>
                                     </div>
                                     <?php
-                                    modalBodyFormUpdate($l,$token, "");
+                                    modalBodyFormUpdate($l,$token, "../src/actions/db_update_user.php");
                                     ?>
                                 </div>
                             </td>
