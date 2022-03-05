@@ -11,7 +11,7 @@ if (isset($_SESSION["error_message_connection"])){//vérifie si une erreur est s
     $error=false;
 }
 ?>
-<div class="container mt-5">
+<div class="container mt-5 col-xl-4 col-lg-6 col-sm-9">
     <div class="card bg-light">
         <div class="card-body">
             <h1 class="h2 mb-4 fw-normal" style="text-align: center">Se connecter</h1>
@@ -19,24 +19,24 @@ if (isset($_SESSION["error_message_connection"])){//vérifie si une erreur est s
                 <div class="form-floating mb-3">
                     <input type="text"
                            class="form-control form-login"
-                           id="username"
-                           name="username"
+                           id="identifiant"
+                           name="identifiant"
                            placeholder="jean@raminagrobis.fr"
                            value=""
                            maxlength="255"
                            required>
-                    <label for="login">Identifiant ou adresse email</label>
+                    <label for="identifiant">Identifiant ou adresse email</label>
                 </div>
                 <div class="form-floating">
                     <input type="password"
                            class="form-control form-login"
-                           id="password"
-                           name="password"
+                           id="mot_de_passe"
+                           name="mot_de_passe"
                            placeholder="password"
                            value=""
                            maxlength="36"
                            required>
-                    <label for="password">Mot de passe</label>
+                    <label for="mot_de_passe">Mot de passe</label>
                 </div>
                 <input type="hidden" name="token" value="<?php echo $token ?>">
                 <button type="submit" class="btn btn-primary my-4 w-100 py-2">
