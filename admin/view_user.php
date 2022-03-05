@@ -76,7 +76,7 @@ if (isset($search)) {
                                 </div>
                                 <?php
                                 modalBodyFormUpdate($l,$token, "../src/actions/db_update_user.php");
-                                modalBodyFormDeleteField($l['identifiant'], $l['id'], $token, "");
+                                modalBodyFormDeleteField($l['identifiant'], $l['id'], $token, "../src/actions/db_delete_user.php");
                                 ?>
                             </td>
                         </tr>
