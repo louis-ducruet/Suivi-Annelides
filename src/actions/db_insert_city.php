@@ -15,6 +15,6 @@ if (checkLenString($nom, 128) && checkInt((int)$departement, 1, 999)) {
     $_SESSION["error_message"] = "Ville ajouté avec succès";
 } else {
     $_SESSION["error"] = true; //erreur
-    $_SESSION["error_message"] = "$nom : $departement Invalide";
+    $_SESSION["error_message"] = "Impossible d'ajouter cette ville, les données ne sont pas valides";
 }
 header("location: ../../admin/view_city.php");//retour à la page
