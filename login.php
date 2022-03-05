@@ -15,7 +15,7 @@ if (isset($_SESSION["error_message_connection"])){//vérifie si une erreur est s
     <div class="card bg-light">
         <div class="card-body">
             <h1 class="h2 mb-4 fw-normal" style="text-align: center">Se connecter</h1>
-            <form action="" id="register" method="POST">
+            <form action="src/actions/login.php" id="register" method="POST">
                 <div class="form-floating mb-3">
                     <input type="text"
                            class="form-control form-login"
@@ -44,7 +44,7 @@ if (isset($_SESSION["error_message_connection"])){//vérifie si une erreur est s
                 </button>
             </form>
             <?php if($error){ //afficher le message d'erreur s'il y a eu une erreur
-                echo "<div class='alert alert-danger'><p><span class='fal fa-exclamation-triangle'></span> $error_message</p></div>";
+                echo "<div class='alert alert-danger'><span class='fa-solid fa-triangle-exclamation'></span> $error_message</div>";
             } ?>
         </div>
     </div>
