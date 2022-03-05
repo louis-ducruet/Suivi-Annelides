@@ -69,16 +69,15 @@ if (isset($search)) {
                             </td>
                             <td> <!-- option applicable au secteur enregistré dans la base de donnée-->
                                 <div class="btn-group">
-                                    <div class="btn-group">
-                                        <?php
-                                        modalButton("<span class='fas fa-edit'></span>", "success", "modalUpdateField" . $l['id']);
-                                        modalButton("<span class='fas fa-trash'></span>", "danger", "modalDeleteField" . $l['id']);
-                                        ?>
-                                    </div>
                                     <?php
-                                    modalBodyFormUpdate($l,$token, "../src/actions/db_update_user.php");
+                                    modalButton("<span class='fas fa-edit'></span>", "success", "modalUpdateField" . $l['id']);
+                                    modalButton("<span class='fas fa-trash'></span>", "danger", "modalDeleteField" . $l['id']);
                                     ?>
                                 </div>
+                                <?php
+                                modalBodyFormUpdate($l,$token, "../src/actions/db_update_user.php");
+                                modalBodyFormDeleteField($l['identifiant'], $l['id'], $token, "");
+                                ?>
                             </td>
                         </tr>
                         <?php
