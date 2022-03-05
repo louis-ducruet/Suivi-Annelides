@@ -6,9 +6,11 @@ if (isset($search)) {
 $title = "Visualisation : Utilisateurs";
 $root_path = "./../";
 include_once "../src/layout/header.php";
+include_once "../src/actions/generate_security_token.php";
 include_once "../src/config.php";
 include_once "../src/actions/database-connection.php";
 include_once "../src/actions/functions.php";
+include_once "../src/actions/modal_insert_user.php";
 if (isset($search)) {
     $lines = sqlCommand("SELECT id, identifiant, email, admin FROM utilisateur WHERE identifiant LIKE :search ORDER BY identifiant", [":search" => "%" . $search . "%"], $conn);
 } else {
@@ -26,6 +28,7 @@ if (isset($search)) {
                 <div class="col-6"> <!-- création d'un nouveau secteur dans la base de donnée-->
                     <h2 class="mt-2">Ajouter un utilisateur</h2>
                     <?php modalAddFormCall("<span class='fa-regular fa-square-plus'></span> Ajouter un utilisateur", "success", "modalAddField"); ?>
+                    <?php modalBodyFormAddCity($token, ""); ?>
                 </div>
             </div>
             <hr>
