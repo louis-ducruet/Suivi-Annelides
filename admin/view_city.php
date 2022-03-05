@@ -10,8 +10,8 @@ include_once "../src/actions/generate_security_token.php";
 include_once "../src/config.php";
 include_once "../src/actions/database-connection.php";
 include_once "../src/actions/functions.php";
-include_once "../src/actions/modal_insert_city.php";
-include_once "../src/actions/modal_update_city.php";
+include_once "../src/layout/modal_insert_city.php";
+include_once "../src/layout/modal_update_city.php";
 if (isset($search)) {
     $lines = sqlCommand("SELECT * FROM ville  WHERE nom LIKE :search ORDER BY nom", [":search" => "%" . $search . "%"], $conn);
 } else {

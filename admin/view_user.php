@@ -10,8 +10,8 @@ include_once "../src/actions/generate_security_token.php";
 include_once "../src/config.php";
 include_once "../src/actions/database-connection.php";
 include_once "../src/actions/functions.php";
-include_once "../src/actions/modal_insert_user.php";
-include_once "../src/actions/modal_update_user.php";
+include_once "../src/layout/modal_insert_user.php";
+include_once "../src/layout/modal_update_user.php";
 if (isset($search)) {
     $lines = sqlCommand("SELECT id ,identifiant, email, admin FROM utilisateur WHERE identifiant LIKE :search ORDER BY identifiant", [":search" => "%" . $search . "%"], $conn);
 } else {
