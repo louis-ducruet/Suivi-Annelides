@@ -20,6 +20,7 @@ if (isset($search)) {
     <section>
         <div class="container mt-5">
             <h1>Gestion des utilisateurs</h1>
+            <?php include "../src/actions/print_sql_error.php"?>
             <div class="row">
                 <div class="col-6"> <!-- création d'un nouveau secteur dans la base de donnée-->
                     <h2 class="mt-2">Rechercher un utilisateur</h2>
@@ -28,7 +29,7 @@ if (isset($search)) {
                 <div class="col-6"> <!-- création d'un nouveau secteur dans la base de donnée-->
                     <h2 class="mt-2">Ajouter un utilisateur</h2>
                     <?php modalAddFormCall("<span class='fa-regular fa-square-plus'></span> Ajouter un utilisateur", "success", "modalAddField"); ?>
-                    <?php modalBodyFormAddCity($token, ""); ?>
+                    <?php modalBodyFormAddCity($token, "../src/actions/db_insert_user.php"); ?>
                 </div>
             </div>
             <hr>
