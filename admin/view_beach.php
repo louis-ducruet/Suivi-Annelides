@@ -13,6 +13,7 @@ include "../src/actions/check_connection.php";
 include_once "../src/config.php";
 include_once "../src/actions/database-connection.php";
 include_once "../src/actions/functions.php";
+include_once "../src/layout/modal_insert_beach.php";
 
 if (isset($search)) {
     $lines = sqlCommand("SELECT plage.id, plage.nom, plage.superficie, ville.nom AS ville FROM plage JOIN ville ON plage.ville_id = ville.id WHERE plage.nom LIKE :search ORDER BY plage.nom", [":search" => "%" . $search . "%"], $conn);
@@ -32,6 +33,7 @@ if (isset($search)) {
                 <div class="col-6"> <!-- création d'un nouveau secteur dans la base de donnée-->
                     <h2 class="mt-2">Ajouter une plage</h2>
                     <?php modalAddFormCall("<span class='fa-regular fa-square-plus'></span> Ajouter une plage", "success", "modalAddField"); ?>
+                    <?php modalBodyFormAddBeach($token, "", $conn); ?>
                 </div>
             </div>
             <hr>
