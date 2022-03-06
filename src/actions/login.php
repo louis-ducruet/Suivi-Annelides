@@ -14,5 +14,6 @@ if (count($utilisateur)==1){
 }
 else {
     $_SESSION["error_message_connection"] = "Identifiant ou mot de passe incorrect";
+    $_SESSION["user_connect"] = false;
     header("location: ../../login.php");
 }

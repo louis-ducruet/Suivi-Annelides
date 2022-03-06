@@ -6,7 +6,7 @@ include_once "src/layout/header.php";
 <section>
     <div class="container mt-5">
         <h1>Site en cours de développement !</h1>
-        <a href="/admin">Liste des pages</a>
+        <a href="/login.php">Se connecter</a>
     </div>
 </section>
 <?php
