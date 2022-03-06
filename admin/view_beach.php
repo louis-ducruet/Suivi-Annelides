@@ -33,7 +33,7 @@ if (isset($search)) {
                 <div class="col-6"> <!-- création d'un nouveau secteur dans la base de donnée-->
                     <h2 class="mt-2">Ajouter une plage</h2>
                     <?php modalAddFormCall("<span class='fa-regular fa-square-plus'></span> Ajouter une plage", "success", "modalAddField"); ?>
-                    <?php modalBodyFormAddBeach($token, "", $conn); ?>
+                    <?php modalBodyFormAddBeach($token, "../src/actions/db_insert_beach.php", $conn); ?>
                 </div>
             </div>
             <hr>
