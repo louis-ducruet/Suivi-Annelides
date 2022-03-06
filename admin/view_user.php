@@ -5,6 +5,7 @@ if (isset($search)) {
 }
 $title = "Visualisation : Utilisateurs";
 $root_path = "./../";
+$redirect = "admin/view_user.php";
 include_once "../src/layout/header.php";
 include_once "../src/actions/generate_security_token.php";
 include "../src/actions/check_connection.php";

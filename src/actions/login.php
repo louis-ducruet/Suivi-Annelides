@@ -10,7 +10,13 @@ if (count($utilisateur)==1){
     $_SESSION["username"] = $utilisateur[0]["identifiant"];
     $_SESSION["user_role"] = $utilisateur[0]["admin"];
     $_SESSION["user_connect"] = true;
-    header("location: ../../admin/");
+    if (isset($_COOKIE["redirect"])){
+        setcookie("redirect", "", time()-3600, "/");
+        var_dump($_COOKIE["redirect"]);
+        header("location: ../../".$_COOKIE["redirect"]);
+    }else{
+        header("location: ../../admin/");
+    }
 }
 else {
     setcookie("Error[bol]", "true", time()+3600, "/");

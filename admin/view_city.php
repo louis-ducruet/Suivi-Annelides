@@ -5,6 +5,7 @@ if (isset($search)) {
 }
 $title = "Visualisation : Villes";
 $root_path = "./../";
+$redirect = "admin/view_city.php";
 include_once "../src/layout/header.php";
 include_once "../src/actions/generate_security_token.php";
 include "../src/actions/check_connection.php";

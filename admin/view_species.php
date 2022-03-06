@@ -5,6 +5,7 @@ if (isset($search)) {
 }
 $title = "Visualisation : Espèces";
 $root_path = "./../";
+$redirect = "admin/view_species.php";
 include_once "../src/layout/header.php";
 include_once "../src/actions/generate_security_token.php";
 include "../src/actions/check_connection.php";
