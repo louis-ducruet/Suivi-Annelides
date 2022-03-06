@@ -1,6 +1,7 @@
 <?php
 include_once "check_security_token.php";
 $root_path = "../../";
+$redirect = "admin/view_user.php";
 include "check_connection.php";
 
 //connection à la base de donnée
