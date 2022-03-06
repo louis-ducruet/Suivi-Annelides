@@ -1,21 +1,22 @@
 <?php
-    $search = filter_input(INPUT_GET, 'search');
-    if (isset($search)) {
-        $redirect = basename(__FILE__) . "?search=$search";
-    }
-    $title = "Visualisation : Espèces";
-    $root_path = "./../";
-    include_once "../src/layout/header.php";
-    include_once "../src/actions/generate_security_token.php";
-    include_once "../src/config.php";
-    include_once "../src/actions/database-connection.php";
-    include_once "../src/actions/functions.php";
-    include_once "../src/layout/modal_update_species.php";
-    if (isset($search)) {
-        $lines = sqlCommand("SELECT * FROM espece  WHERE nom LIKE :search ORDER BY nom", [":search" => "%" . $search . "%"], $conn);
-    } else {
-        $lines = sqlCommand("SELECT * FROM espece ORDER BY nom", [], $conn);
-    }
+$search = filter_input(INPUT_GET, 'search');
+if (isset($search)) {
+    $redirect = basename(__FILE__) . "?search=$search";
+}
+$title = "Visualisation : Espèces";
+$root_path = "./../";
+include_once "../src/layout/header.php";
+include_once "../src/actions/generate_security_token.php";
+include "../src/actions/check_connection.php";
+include_once "../src/config.php";
+include_once "../src/actions/database-connection.php";
+include_once "../src/actions/functions.php";
+include_once "../src/layout/modal_update_species.php";
+if (isset($search)) {
+    $lines = sqlCommand("SELECT * FROM espece  WHERE nom LIKE :search ORDER BY nom", [":search" => "%" . $search . "%"], $conn);
+} else {
+    $lines = sqlCommand("SELECT * FROM espece ORDER BY nom", [], $conn);
+}
 ?>
     <section>
         <div class="container mt-5">
