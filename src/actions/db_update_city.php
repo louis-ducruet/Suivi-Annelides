@@ -1,5 +1,7 @@
 <?php
 include_once "check_security_token.php";
+$root_path = "../../";
+include "check_connection.php";
 
 //connection à la base de donnée
 include_once "functions.php";
