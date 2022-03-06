@@ -19,10 +19,10 @@ if (checkLenString($identifiant, 128) && checkEmail($email,255) && checkInt((int
     else{
         sqlCommand("UPDATE utilisateur SET identifiant=:identifiant, email=:email, admin=:admin WHERE id=:id", ["id"=>$id,":identifiant"=>$identifiant,":email"=>$email,":admin"=>$role], $conn,false);
     }
-    $_SESSION["error"] = false;//succès
-    $_SESSION["error_message"] = "Données de la ville modifié avec succès";
+    setcookie("Error[bol]", "false", time()+3600, "/");
+    setcookie("Error[msg]", "Données de la ville modifié avec succès", time()+3600, "/");
 } else {
-    $_SESSION["error"] = true;//erreur
-    $_SESSION["error_message"] = "Impossible de modifier les données de la ville, les données ne sont pas valide";
+    setcookie("Error[bol]", "true", time()+3600, "/");
+    setcookie("Error[msg]", "Impossible de modifier les données de la ville, les données ne sont pas valide", time()+3600, "/");
 }
 header("location: ../../admin/view_user.php");//retour à la page

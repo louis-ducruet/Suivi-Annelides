@@ -13,7 +13,7 @@ if (count($utilisateur)==1){
     header("location: ../../admin/");
 }
 else {
-    $_SESSION["error_message_connection"] = "Identifiant ou mot de passe incorrect";
-    $_SESSION["user_connect"] = false;
+    setcookie("Error[bol]", "true", time()+3600, "/");
+    setcookie("Error[msg]", "Identifiant ou mot de passe incorrect", time()+3600, "/");
     header("location: ../../login.php");
 }

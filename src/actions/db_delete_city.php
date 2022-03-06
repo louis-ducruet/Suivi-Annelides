@@ -9,10 +9,10 @@ $id = filter_input(INPUT_POST, "id");
 
 if (sqlCommand("SELECT count(id) FROM ville WHERE id=:id", [":id" => $id], $conn)[0][0] == 1) { //vérification si l'id du secteur existe
     sqlCommand("DELETE FROM ville WHERE id=:id", [":id" => $id], $conn, false);
-    $_SESSION["error"] = false; //succès
-    $_SESSION["error_message"] = "Ville supprimé avec succès";
+    setcookie("Error[bol]", "false", time()+3600, "/");
+    setcookie("Error[msg]", "Ville supprimé avec succès", time()+3600, "/");
 } else {
-    $_SESSION["error"] = true; //erreur
-    $_SESSION["error_message"] = "Impossible de supprimer la ville, les données ne sont pas valides";
+    setcookie("Error[bol]", "true", time()+3600, "/");
+    setcookie("Error[msg]", "Impossible de supprimer la ville, les données ne sont pas valides", time()+3600, "/");
 }
 header("location: ../../admin/view_city.php");//retour à la page

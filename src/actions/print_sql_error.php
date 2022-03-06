@@ -1,11 +1,11 @@
-<?php if (isset($_SESSION["error"])) {
+<?php if (isset($_COOKIE["Error"])) {
     //afficher le message de l'erreur / succès
-    if ($_SESSION["error"]) {
+    if ($_COOKIE["Error"]["bol"]=="true") {
         echo "<div class='alert alert-danger'>"; //si erreur
     } else {
         echo "<div class='alert alert-success'>"; //si succès
     }
-    echo $_SESSION["error_message"] . '</div>';
-    unset($_SESSION["error"]);
-    unset($_SESSION["error_message"]);
+    echo $_COOKIE["Error"]["msg"] . '</div>';
+    setcookie("Error[bol]", "", time()-3600, "/");
+    setcookie("Error[msg]", "", time()-3600, "/");
 }

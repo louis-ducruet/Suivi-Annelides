@@ -10,10 +10,10 @@ $name = filter_input(INPUT_POST, "name");
 
 if (checkLenString($name, 255)) {
     sqlCommand("INSERT INTO espece (nom) VALUES (:name)", [":name" => $name], $conn,false);
-    $_SESSION["error"] = false; //succès
-    $_SESSION["error_message"] = "Espèce ajouté avec succès";
+    setcookie("Error[bol]", "false", time()+3600, "/");
+    setcookie("Error[msg]", "Espèce ajouté avec succès", time()+3600, "/");
 } else {
-    $_SESSION["error"] = true; //erreur
-    $_SESSION["error_message"] = "Impossible d'ajouter cette espèce, les données ne sont pas valides";
+    setcookie("Error[bol]", "true", time()+3600, "/");
+    setcookie("Error[msg]", "Impossible d'ajouter cette espèce, les données ne sont pas valides", time()+3600, "/");
 }
 header("location: ../../admin/view_species.php");//retour à la page

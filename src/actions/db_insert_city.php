@@ -11,10 +11,10 @@ $departement = filter_input(INPUT_POST, "departement");
 
 if (checkLenString($nom, 128) && checkInt((int)$departement, 1, 999)) {
     sqlCommand("INSERT INTO ville (nom, departement) VALUES (:nom, :departement)", [":nom" => $nom, ":departement" => $departement], $conn,false);
-    $_SESSION["error"] = false; //succès
-    $_SESSION["error_message"] = "Ville ajouté avec succès";
+    setcookie("Error[bol]", "false", time()+3600, "/");
+    setcookie("Error[msg]", "Ville ajouté avec succès", time()+3600, "/");
 } else {
-    $_SESSION["error"] = true; //erreur
-    $_SESSION["error_message"] = "Impossible d'ajouter cette ville, les données ne sont pas valides";
+    setcookie("Error[bol]", "true", time()+3600, "/");
+    setcookie("Error[msg]", "Impossible d'ajouter cette ville, les données ne sont pas valides", time()+3600, "/");
 }
 header("location: ../../admin/view_city.php");//retour à la page

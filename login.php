@@ -3,13 +3,6 @@ include_once "src/actions/generate_security_token.php";
 $title = "Page de connexion";
 $root_path = "/";
 include "src/layout/header.php";
-if (isset($_SESSION["error_message_connection"])){//vérifie si une erreur est survenue lors d'une tentative de connexion
-    $error_message = $_SESSION["error_message_connection"];
-    $error = true;
-    unset($_SESSION["error_message_connection"]);
-}else{
-    $error=false;
-}
 ?>
 <div class="container mt-5 col-xl-4 col-lg-6 col-sm-9">
     <div class="card bg-light">
@@ -43,9 +36,9 @@ if (isset($_SESSION["error_message_connection"])){//vérifie si une erreur est s
                     <span class="fas fa-sign-in-alt"></span> Se connecter
                 </button>
             </form>
-            <?php if($error){ //afficher le message d'erreur s'il y a eu une erreur
-                echo "<div class='alert alert-danger'><span class='fa-solid fa-triangle-exclamation'></span> $error_message</div>";
-            } ?>
+            <?php
+            include "src/actions/print_sql_error.php";
+            ?>
         </div>
     </div>
 </div>
