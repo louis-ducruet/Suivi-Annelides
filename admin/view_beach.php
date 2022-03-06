@@ -5,7 +5,7 @@ if (isset($search)) {
 }
 $title = "Visualisation : Plages";
 $root_path = "./../";
-$redirect = "admin/view_city.php";
+$redirect = "admin/view_beach.php";
 $page_role = 1;
 include_once "../src/layout/header.php";
 include_once "../src/actions/generate_security_token.php";
