@@ -8,7 +8,7 @@ $motDePasse = filter_input(INPUT_POST, 'mot_de_passe');
 $utilisateur = sqlCommand("SELECT identifiant, admin FROM utilisateur WHERE (identifiant=:identifiant OR email=:identifiant) AND mot_passe=:mot_passe", [":identifiant"=>$identifiant, ":mot_passe"=>$motDePasse],$conn);
 if (count($utilisateur)==1){
     $_SESSION["username"] = $utilisateur[0]["identifiant"];
-    $_SESSION["user_role"] = $utilisateur[0]["role"];
+    $_SESSION["user_role"] = $utilisateur[0]["admin"];
     $_SESSION["user_connect"] = true;
     header("location: ../../admin/");
 }
