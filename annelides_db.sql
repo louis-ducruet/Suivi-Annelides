@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : jeu. 03 mars 2022 à 19:29
+-- Généré le : Dim 06 mars 2022 à 13:28
 -- Version du serveur :  5.7.31
 -- Version de PHP : 7.4.9
 
@@ -39,6 +39,22 @@ CREATE TABLE IF NOT EXISTS `espece` (
 -- --------------------------------------------------------
 
 --
+-- Structure de la table `plage`
+--
+
+DROP TABLE IF EXISTS `plage`;
+CREATE TABLE IF NOT EXISTS `plage` (
+  `id` mediumint(8) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `nom` char(128) NOT NULL,
+  `superficie` float UNSIGNED NOT NULL,
+  `ville_id` smallint(5) UNSIGNED NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fk_plage_ville` (`ville_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
 -- Structure de la table `utilisateur`
 --
 
@@ -67,6 +83,16 @@ CREATE TABLE IF NOT EXISTS `ville` (
   `departement` smallint(5) UNSIGNED NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Contraintes pour les tables déchargées
+--
+
+--
+-- Contraintes pour la table `plage`
+--
+ALTER TABLE `plage`
+  ADD CONSTRAINT `fk_plage_ville` FOREIGN KEY (`ville_id`) REFERENCES `ville` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
