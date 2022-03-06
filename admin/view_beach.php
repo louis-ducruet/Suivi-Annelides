@@ -3,7 +3,7 @@ $search = filter_input(INPUT_GET, 'search');
 if (isset($search)) {
     $redirect = basename(__FILE__) . "?search=$search";
 }
-$title = "Visualisation : Villes";
+$title = "Visualisation : Plages";
 $root_path = "./../";
 $redirect = "admin/view_city.php";
 $page_role = 1;
@@ -22,11 +22,11 @@ if (isset($search)) {
 ?>
     <section>
         <div class="container mt-5">
-            <h1>Gestion des villes</h1>
+            <h1>Gestion des plages</h1>
             <?php include "../src/actions/print_sql_error.php"?>
             <div class="row">
                 <div class="col-6"> <!-- création d'un nouveau secteur dans la base de donnée-->
-                    <h2 class="mt-2">Rechercher une ville</h2>
+                    <h2 class="mt-2">Rechercher une plage</h2>
                     <?php searchInput($search, "view_beach.php", "view_beach.php"); ?>
                 </div>
             </div>
